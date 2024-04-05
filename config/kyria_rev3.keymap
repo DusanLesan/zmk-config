@@ -26,29 +26,46 @@
             // |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
             // | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | LAYER 1 | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
             //                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
-            bindings = <
-            &kp ESC   &kp Q &kp W &kp E &kp R &kp T                                                  &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
-            &kp TAB   &kp A &kp S &kp D &kp F &kp G                                                  &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-            &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT            &mo 1   &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-                                  &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC       &kp RET &kp SPACE &kp TAB &kp BSPC &kp RALT
-            >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            bindings = <
+&kp ESC    &kp Q  &kp W  &kp E      &kp R     &kp T                                                               &kp Y     &kp U     &kp I      &kp O    &kp P     &kp BSLH
+&kp TAB    &kp A  &kp S  &kp D      &kp F     &kp G                                                               &kp H     &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C      &kp V     &kp B     &kp LSHFT  &kp LSHFT  &mo 3        &kp LSHFT              &kp N     &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RCTRL
+                         &kp LCTRL  &kp LALT  &kp LGUI  &kp SPACE  &kp ESC    &lt 1 SPACE  &mt RIGHT_SHIFT ENTER  &kp RALT  &kp RGUI  &kp RALT
+            >;
         };
+
+        sym {
+            bindings = <
+&kp GRAVE  &kp N1         &kp N2       &kp N3         &kp N4      &kp N5                                                             &kp N6             &kp N7          &kp N8        &kp N9                &kp N0                 &kp EQUAL
+&kp BSPC   &kp EXCL       &kp AT_SIGN  &kp HASH       &kp DOLLAR  &kp PERCENT                                                        &kp CARET          &kp AMPERSAND   &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&kp PIPE   &kp BACKSLASH  &kp COLON    &kp SEMICOLON  &kp MINUS   &kp LEFT_BRACKET  &kp LEFT_BRACE  &trans  &trans  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp UNDERSCORE  &kp COMMA     &kp PERIOD            &kp SLASH              &kp QUESTION
+                                       &trans         &trans      &trans            &trans          &trans  &trans  &trans           &trans             &trans          &trans
+            >;
+        };
+
+        media {
+            bindings = <
+&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                         &trans   &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
         function_layer {
             // ---------------------------------------------------------------------------------------------------------------------------------
             // |       |      |BT_CLR|BTSEL0|BTSEL1|BTSEL2|                                         |      |      |      |      |      |      |
             // |       |      |      |BTSEL3|BTSEL4|      |                                         |      |      |      |      |      |      |
             // |       |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
             //                       |      |      |      |      |      |      |      |      |      |      |      |      |
-            bindings = <
-            &trans &trans &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2              &trans &trans &trans &trans &trans &trans
-            &trans &trans &trans     &bt BT_SEL 3 &bt BT_SEL 4 &trans                    &trans &trans &trans &trans &trans &trans
-            &trans &trans &trans &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans &trans &trans &trans
-                                 &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans
-            >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            bindings = <
+&trans  &trans  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans      &bt BT_SEL 3  &bt BT_SEL 4  &trans                                        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans      &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                            &trans        &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
         };
     };
 };
