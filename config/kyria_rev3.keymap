@@ -48,10 +48,10 @@
 
         alpha {
             bindings = <
-&kp ESC    &kp Q  &kp W  &kp E      &kp R     &kp T                                                                     &kp Y     &kp U     &kp I      &kp O    &kp P     &bc_del
-&kp TAB    &kp A  &kp S  &kp D      &kp F     &kp G                                                                     &kp H     &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C      &kp V     &kp B     &kp LSHFT        &kp LSHFT   &mo 3       &kp LSHFT              &kp N     &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RCTRL
-                         &kp LCTRL  &kp LALT  &kp LGUI  &mt LCTRL SPACE  &shift_nav  &shift_sym  &mt RIGHT_SHIFT ENTER  &kp RALT  &kp RGUI  &kp RALT
+&kp ESC    &kp Q  &kp W  &kp E      &kp R     &kp T                                                                     &kp Y          &kp U          &kp I       &kp O    &kp P     &bc_del
+&kp TAB    &kp A  &kp S  &kp D      &kp F     &kp G                                                                     &kp H          &kp J          &kp K       &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C      &kp V     &kp B     &kp K_FORWARD    &kp LSHFT   &mo 3       &kp K_BACK             &kp N          &kp M          &kp COMMA   &kp DOT  &kp FSLH  &kp BACKSLASH
+                         &kp LCTRL  &kp LALT  &kp LGUI  &mt LCTRL SPACE  &shift_nav  &shift_sym  &mt RIGHT_SHIFT ENTER  &kp RIGHT_GUI  &kp RIGHT_ALT  &kp K_MENU
             >;
         };
 
@@ -77,8 +77,17 @@
             bindings = <
 &trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans                                  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
 &trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans                                  &trans        &trans        &trans        &trans        &trans        &trans
-&trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans  &trans  &trans  &trans  &trans  &trans        &trans        &trans        &trans        &trans        &trans
+&trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans  &trans  &trans  &trans  &tog 4  &trans        &trans        &trans        &trans        &trans        &trans
                          &trans   &trans   &trans  &trans  &trans  &trans  &trans  &trans        &trans        &trans
+            >;
+        };
+
+        game {
+            bindings = <
+&trans  &trans  &kp Q  &kp W   &kp E   &kp R                                   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp A  &kp S   &kp D   &kp F                                   &trans  &trans  &trans  &trans  &trans  &trans
+&tog 0  &trans  &kp Z  &kp X   &kp C   &kp V   &kp G   &kp I   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &tog 0
+                       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
