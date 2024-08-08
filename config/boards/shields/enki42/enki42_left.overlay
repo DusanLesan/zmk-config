@@ -1,10 +1,4 @@
-/*
- * Copyright (c) 2023 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
-#include "kyria_rev3.dtsi"
+#include "enki42.dtsi"
 
 &kscan0 {
     row-gpios

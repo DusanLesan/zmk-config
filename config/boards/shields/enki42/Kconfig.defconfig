@@ -1,10 +1,10 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_KYRIA_REV3_DONGLE
+if SHIELD_ENKI42_DONGLE
 
 config ZMK_KEYBOARD_NAME
-	default "Kyria Dongle"
+	default "enki42 Dongle"
 	
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
@@ -14,7 +14,7 @@ config ZMK_USB
 
 endif
 
-if SHIELD_KYRIA_REV3_DONGLE || SHIELD_KYRIA_P_LEFT || SHIELD_KYRIA_P_RIGHT
+if SHIELD_ENKI42_LEFT || SHIELD_ENKI42_RIGHT || SHIELD_ENKI42_DONGLE 
 
 config ZMK_SPLIT
 	default y

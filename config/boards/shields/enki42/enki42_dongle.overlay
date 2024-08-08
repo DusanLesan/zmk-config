@@ -1,4 +1,4 @@
-#include "kyria_rev3.dtsi"
+#include "enki42.dtsi"
 
 &default_transform {
     col-offset = <7>;
@@ -25,4 +25,5 @@
 &right_encoder {
     status = "okay";
 };
+
 
