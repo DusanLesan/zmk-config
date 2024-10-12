@@ -35,6 +35,47 @@
 			#binding-cells = <0>;
 			mods = <(MOD_LSFT|MOD_RSFT)>;
 		};
+
+		lpar_lt: lpar_lt {
+			compatible = "zmk,behavior-mod-morph";
+			label = "LPAR_LT";
+			bindings = <&kp LPAR>, <&kp LT>;
+
+			#binding-cells = <0>;
+			mods = <(MOD_LSFT|MOD_RSFT)>;
+		};
+
+		rpar_gt: rpar_gt {
+			compatible = "zmk,behavior-mod-morph";
+			label = "RPAR_GT";
+			bindings = <&kp RPAR>, <&kp GT>;
+
+			#binding-cells = <0>;
+			mods = <(MOD_LSFT|MOD_RSFT)>;
+		};
+
+	};
+
+	combos {
+		compatible = "zmk,combos";
+		excl { bindings = <&kp EXCL>; key-positions = <1 13>; };
+		at { bindings = <&kp AT>; key-positions = <2 14>; };
+		pound { bindings = <&kp POUND>; key-positions = <3 15>; };
+		dollar { bindings = <&kp DOLLAR>; key-positions = <4 16>; };
+		percent { bindings = <&kp PERCENT>; key-positions = <5 17>; };
+		caret { bindings = <&kp CARET>; key-positions = <6 18>; };
+		plus { bindings = <&kp PLUS>; key-positions = <7 19>; };
+		astrk { bindings = <&kp ASTRK>; key-positions = <8 20>; };
+		amps { bindings = <&kp AMPS>; key-positions = <9 21>; };
+		lpar { bindings = <&lpar_lt>; key-positions = <19 20>; };
+		rpar { bindings = <&rpar_gt>; key-positions = <20 21>; };
+		slsh { bindings = <&kp SLASH>; key-positions = <20 36>; };
+		lbrc {bindings = <&kp LEFT_BRACKET>; key-positions = <35 36>; };
+		rbrc { bindings = <&kp RIGHT_BRACKET>; key-positions = <36 37>; };
+		dash { bindings = <&kp MINUS>; key-positions = <19 35>; };
+		equal { bindings = <&kp EQUAL>; key-positions = <16 28>; };
+		bslh { bindings = <&kp BSLH>; key-positions = <15 27>; };
+		pipe { bindings = <&kp PIPE>; key-positions = <21 37>; };
 	};
 
 	keymap {
