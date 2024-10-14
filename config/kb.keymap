@@ -17,6 +17,11 @@
 	continue-list = <BSPC DEL DOT COMMA>;
 };
 
+&lt {
+	tapping-term-ms = <300>;
+	flavor = "hold-preferred";
+};
+
 #define MOD_MORPH(bind1, bind2) \
 	compatible = "zmk,behavior-mod-morph"; \
 	#binding-cells = <0>; \
@@ -34,7 +39,6 @@
 	hold-trigger-on-release; \
 	quick-tap-ms = <175>; \
 	require-prior-idle-ms = <150>; \
-	HOLD_TAP(&kp, &kp)
 
 / {
 	behaviors {
@@ -55,8 +59,10 @@
 			HOLD_TAP(&mo, &td_num)
 		};
 
-		hml: hml { label = "HML"; hold-trigger-key-positions = <KEYS_R THUMBS>; HOME_ROW };
-		hmr: hmr { label = "HMR"; hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW };
+		hml: hml { label = "HML"; hold-trigger-key-positions = <KEYS_R THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };
+		hmr: hmr { label = "HMR"; hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };
+		hr_combo_lpar: hr_combo_lpar { hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &lpar_lt) };
+		hr_combo_rpar: hr_combo_rpar { hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &rpar_gt) };
 	};
 
 	combos {
@@ -70,8 +76,6 @@
 		plus { bindings = <&kp PLUS>; key-positions = <7 19>; };
 		astrk { bindings = <&kp ASTRK>; key-positions = <8 20>; };
 		amps { bindings = <&kp AMPS>; key-positions = <9 21>; };
-		lpar { bindings = <&lpar_lt>; key-positions = <19 20>; };
-		rpar { bindings = <&rpar_gt>; key-positions = <20 21>; };
 		slsh { bindings = <&kp SLASH>; key-positions = <20 36>; };
 		lbrc {bindings = <&kp LEFT_BRACKET>; key-positions = <35 36>; };
 		rbrc { bindings = <&kp RIGHT_BRACKET>; key-positions = <36 37>; };
@@ -80,6 +84,9 @@
 		tild { bindings = <&kp GRAVE>; key-positions = <14 26>; };
 		bslh { bindings = <&kp BSLH>; key-positions = <15 27>; };
 		pipe { bindings = <&kp PIPE>; key-positions = <21 37>; };
+
+		lpar { timeout-ms = <18>; bindings = <&hr_combo_lpar RS(RCTRL) 0>; key-positions = <19 20>; layers = <ALP NUM>; require-prior-idle-ms = <150>; };
+		rpar { timeout-ms = <18>; bindings = <&hr_combo_rpar RS(RALT) 0>; key-positions = <20 21>; layers = <ALP NUM>; require-prior-idle-ms = <150>; };
 	};
 
 	keymap {
