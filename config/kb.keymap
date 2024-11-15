@@ -42,7 +42,6 @@
 
 / {
 	behaviors {
-		space_nav: space_nav { label = "SPACE_NAV"; MOD_MORPH(&lt NAV SPACE, &to NAV) };
 		bc_del: bc_del { label = "BC_DEL"; MOD_MORPH(&kp BACKSPACE, &kp DELETE) };
 		lpar_lt: lpar_lt { label = "LPAR_LT"; MOD_MORPH(&kp LPAR, &kp LT) };
 		rpar_gt: rpar_gt { label = "RPAR_GT"; MOD_MORPH(&kp RPAR, &kp GT) };
@@ -94,10 +93,10 @@
 
 		alpha {
 			bindings = <
-&kp ESC   &kp Q        &kp W        &kp E         &kp R         &kp T                                                                       &kp Y     &kp U          &kp I         &kp O        &kp P           &bc_del
-&kp TAB   &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &hml LGUI G                                                                 &kp H     &hmr RCTRL J   &hmr RSHFT K  &hmr RALT L  &hmr RGUI SEMI  &kp SQT
-&kp CAPS  &kp Z        &kp X        &kp C         &kp V         &kp B        &kp K_FORWARD    &kp LSHFT      &mo FUN         &kp K_BACK     &kp N     &kp M          &kp COMMA     &kp DOT      &kp FSLH        &kp BACKSLASH
-									&kp LCTRL     &kp LALT      &kp LGUI     &mt LCTRL SPACE  &space_nav     &mt RSHFT ENTER &lt_num NUM 0  &kp RGUI  &kp RIGHT_ALT  &kp K_MENU
+&kp ESC   &kp Q        &kp W        &kp E         &kp R         &kp T                                                                         &kp Y     &kp U          &kp I         &kp O        &kp P           &bc_del
+&kp TAB   &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &hml LGUI G                                                                   &kp H     &hmr RCTRL J   &hmr RSHFT K  &hmr RALT L  &hmr RGUI SEMI  &kp SQT
+&kp CAPS  &kp Z        &kp X        &kp C         &kp V         &kp B        &kp K_FORWARD    &kp LSHFT        &mo FUN         &kp K_BACK     &kp N     &kp M          &kp COMMA     &kp DOT      &kp FSLH        &kp BACKSLASH
+									&kp LCTRL     &kp LALT      &kp LGUI     &mt LCTRL SPACE  &lt NAV SPACE    &mt RSHFT ENTER &lt_num NUM 0  &kp RGUI  &kp RIGHT_ALT  &kp K_MENU
 			>;
 		};
 
@@ -114,17 +113,17 @@
 			bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                                      &kp PG_UP      &kp HOME    &kp UP_ARROW    &kp END     &kp C_VOLUME_UP  &kp DELETE
 &trans  &trans  &trans  &trans  &trans  &trans                                      &kp PAGE_DOWN  &kp LEFT    &kp DOWN        &kp RIGHT   &kp C_VOL_DN     &kp INSERT
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &kp C_PLAY     &kp C_STOP  &kp C_PREVIOUS  &kp C_NEXT  &kp C_MUTE       &kp PRINTSCREEN
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans         &trans      &trans          &trans      &trans           &kp PRINTSCREEN
 						&trans  &trans  &trans  &trans  &to ALP     &trans  &trans  &trans         &trans      &trans
 			>;
 		};
 
 		funct {
 			bindings = <
-&kp F12  &kp F7  &kp F8  &kp F9  &trans  &trans                                       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&kp F11  &kp F4  &kp F5  &kp F6  &trans  &trans                                       &trans        &trans        &trans        &trans        &trans        &trans
-&kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans  &trans  &trans     &trans  &tog GAM  &trans        &trans        &trans        &trans        &trans        &trans
-						 &trans  &trans  &trans  &trans  &trans     &trans  &trans    &trans        &trans        &trans        &trans
+&trans  &kp F12  &kp F7  &kp F8  &kp F9  &trans                                       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans                                       &trans        &trans        &trans          &trans        &trans        &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans  &trans     &trans  &tog GAM  &kp C_PLAY    &kp C_STOP    &kp C_PREVIOUS  &kp C_NEXT    &kp C_MUTE    &trans
+						 &trans  &trans  &trans  &trans  &trans     &trans  &trans    &trans        &trans        &trans          &trans
 			>;
 		};
 
