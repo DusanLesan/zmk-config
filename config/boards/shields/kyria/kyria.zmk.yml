@@ -8,6 +8,6 @@ exposes: [i2c_oled]
 features:
   - keys
 siblings:
-  - kb_left
-  - kb_right
-  - kb_dongle
+  - kyria_left
+  - kyria_right
+  - kyria_dongle

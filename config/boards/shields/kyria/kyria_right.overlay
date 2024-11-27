@@ -1,4 +1,4 @@
-#include "kb.dtsi"
+#include "kyria.dtsi"
 
 &default_transform {
 	col-offset = <7>;

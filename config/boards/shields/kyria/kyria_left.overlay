@@ -1,4 +1,4 @@
-#include "kb.dtsi"
+#include "kyria.dtsi"
 
 &kscan0 {
 	row-gpios
