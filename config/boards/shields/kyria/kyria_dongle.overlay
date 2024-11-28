@@ -1,4 +1,4 @@
-#include "kb.dtsi"
+#include "kyria.dtsi"
 
 &kscan0 {
 	row-gpios = <&pro_micro 19 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN)>;

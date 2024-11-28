@@ -1,4 +1,4 @@
-#include "kb_common.dtsi"
+#include "kyria_common.dtsi"
 
 / {
 	chosen {
