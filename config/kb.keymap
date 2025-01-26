@@ -58,6 +58,11 @@
 			HOLD_TAP(&mo, &td_num)
 		};
 
+		l_tap: l_tap {
+			label = "L_TAP";
+			HOLD_TAP(&mo, &to)
+		};
+
 		hml: hml { label = "HML"; hold-trigger-key-positions = <KEYS_R THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };
 		hmr: hmr { label = "HMR"; hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };
 		hr_combo_lpar: hr_combo_lpar { hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &lpar_lt) };
@@ -80,7 +85,7 @@
 		rbrc { bindings = <&kp RIGHT_BRACKET>; key-positions = <36 37>; };
 		dash { bindings = <&kp MINUS>; key-positions = <19 35>; };
 		equal { bindings = <&kp EQUAL>; key-positions = <16 28>; };
-		tild { bindings = <&kp GRAVE>; key-positions = <14 26>; };
+		tild { bindings = <&kp GRAVE>; key-positions = <13 25>; };
 		bslh { bindings = <&kp BSLH>; key-positions = <15 27>; };
 		pipe { bindings = <&kp PIPE>; key-positions = <21 37>; };
 
@@ -95,7 +100,7 @@
 			bindings = <
 &kp ESC   &kp Q        &kp W        &kp E         &kp R         &kp T                                                                         &kp Y     &kp U          &kp I         &kp O        &kp P           &bc_del
 &kp TAB   &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &hml LGUI G                                                                   &kp H     &hmr RCTRL J   &hmr RSHFT K  &hmr RALT L  &hmr RGUI SEMI  &kp SQT
-&kp CAPS  &kp Z        &kp X        &kp C         &kp V         &kp B        &kp K_FORWARD    &kp LSHFT        &mo FUN         &kp K_BACK     &kp N     &kp M          &kp COMMA     &kp DOT      &kp FSLH        &kp BACKSLASH
+&kp CAPS  &kp Z        &kp X        &kp C         &kp V         &kp B        &kp K_FORWARD    &kp LSHFT        &l_tap FUN FUN  &kp K_BACK     &kp N     &kp M          &kp COMMA     &kp DOT      &kp FSLH        &kp BACKSLASH
 									&kp LCTRL     &kp LALT      &kp LGUI     &mt LCTRL SPACE  &lt NAV SPACE    &mt RSHFT ENTER &lt_num NUM 0  &kp RGUI  &kp RIGHT_ALT  &kp K_MENU
 			>;
 		};
@@ -122,7 +127,7 @@
 			bindings = <
 &trans  &kp F12  &kp F7  &kp F8  &kp F9  &trans                                       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
 &trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans                                       &trans        &trans        &trans          &trans        &trans        &trans
-&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans  &trans     &trans  &tog GAM  &kp C_PLAY    &kp C_STOP    &kp C_PREVIOUS  &kp C_NEXT    &kp C_MUTE    &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans  &trans     &to ALP &to GAM   &kp C_PLAY    &kp C_STOP    &kp C_PREVIOUS  &kp C_NEXT    &kp C_MUTE    &trans
 						 &trans  &trans  &trans  &trans  &trans     &trans  &trans    &trans        &trans        &trans          &trans
 			>;
 		};
