@@ -78,6 +78,10 @@
 		equal { bindings = <&kp EQUAL>; key-positions = <LM1 LB1>; };
 		bslh { bindings = <&kp BSLH>; key-positions = <LM2 LB2>; };
 		tild { bindings = <&kp GRAVE>; key-positions = <LM4 LB4>; };
+		tab { bindings = <&kp TAB>; key-positions = <LT1 LT2>; };
+		esc { bindings = <&kp ESC>; key-positions = <LT2 LT3>; };
+		bspc { bindings = <&kp BACKSPACE>; key-positions = <RT2 RT3>; };
+		del { bindings = <&kp DELETE>; key-positions = <RT3 RT4>; };
 
 		lpar { timeout-ms = <18>; bindings = <&hr_combo_lpar RS(RCTRL) 0>; key-positions = <RM1 RM2>; layers = <ALP NUM>; require-prior-idle-ms = <150>; };
 		rpar { timeout-ms = <18>; bindings = <&hr_combo_rpar RS(RALT) 0>; key-positions = <RM2 RM3>; layers = <ALP NUM>; require-prior-idle-ms = <150>; };
