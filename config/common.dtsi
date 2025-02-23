@@ -1,0 +1,85 @@
+#define ALP 0
+#define NUM 1
+#define NAV 2
+#define FUN 3
+
+#define MOD_MORPH(bind1, bind2) \
+	compatible = "zmk,behavior-mod-morph"; \
+	#binding-cells = <0>; \
+	mods = <(MOD_LSFT|MOD_RSFT)>; \
+	bindings = <bind1>, <bind2>;
+
+#define HOLD_TAP(tap, hold) \
+	compatible = "zmk,behavior-hold-tap"; \
+	flavor = "balanced"; \
+	bindings = <tap>, <hold>; \
+	#binding-cells = <2>; \
+	tapping-term-ms = <280>;
+
+#define HOME_ROW \
+	hold-trigger-on-release; \
+	quick-tap-ms = <175>; \
+	require-prior-idle-ms = <150>; \
+
+&num_word {
+	continue-list = <BSPC DEL DOT COMMA>;
+};
+
+&lt {
+	tapping-term-ms = <300>;
+	flavor = "hold-preferred";
+};
+
+/ {
+	behaviors {
+		bc_del: bc_del { label = "BC_DEL"; MOD_MORPH(&kp BACKSPACE, &kp DELETE) };
+		lpar_lt: lpar_lt { label = "LPAR_LT"; MOD_MORPH(&kp LPAR, &kp LT) };
+		rpar_gt: rpar_gt { label = "RPAR_GT"; MOD_MORPH(&kp RPAR, &kp GT) };
+
+		td_num: td_num {
+			compatible = "zmk,behavior-tap-dance";
+			#binding-cells = <0>;
+			tapping-term-ms = <200>;
+			bindings = <&num_word NUM>, <&sl NUM>;
+		};
+
+		lt_num: lt_num {
+			label = "LT_NUM";
+			HOLD_TAP(&mo, &td_num)
+		};
+
+		l_tap: l_tap {
+			label = "L_TAP";
+			HOLD_TAP(&mo, &to)
+		};
+
+		hml: hml { label = "HML"; hold-trigger-key-positions = <KEYS_R THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };
+		hmr: hmr { label = "HMR"; hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };
+		hr_combo_lpar: hr_combo_lpar { hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &lpar_lt) };
+		hr_combo_rpar: hr_combo_rpar { hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &rpar_gt) };
+	};
+
+	combos {
+		compatible = "zmk,combos";
+		excl { bindings = <&kp EXCL>; key-positions = <LT4 LM4>; };
+		at { bindings = <&kp AT>; key-positions = <LT3 LM3>; };
+		pound { bindings = <&kp POUND>; key-positions = <LT2 LM2>; };
+		dollar { bindings = <&kp DOLLAR>; key-positions = <LT1 LM1>; };
+		percent { bindings = <&kp PERCENT>; key-positions = <LT0 LM0>; };
+		caret { bindings = <&kp CARET>; key-positions = <RT0 RM0>; };
+		plus { bindings = <&kp PLUS>; key-positions = <RT1 RM1>; };
+		astrk { bindings = <&kp ASTRK>; key-positions = <RT2 RM2>; };
+		amps { bindings = <&kp AMPS>; key-positions = <RT3 RM3>; };
+		slsh { bindings = <&kp SLASH>; key-positions = <RM2 RB2>; };
+		pipe { bindings = <&kp PIPE>; key-positions = <RM3 RB3>; };
+		lbrc {bindings = <&kp LEFT_BRACKET>; key-positions = <RB1 RB2>; };
+		rbrc { bindings = <&kp RIGHT_BRACKET>; key-positions = <RB2 RB3>; };
+		dash { bindings = <&kp MINUS>; key-positions = <RM1 RB1>; };
+		equal { bindings = <&kp EQUAL>; key-positions = <LM1 LB1>; };
+		bslh { bindings = <&kp BSLH>; key-positions = <LM2 LB2>; };
+		tild { bindings = <&kp GRAVE>; key-positions = <LM4 LB4>; };
+
+		lpar { timeout-ms = <18>; bindings = <&hr_combo_lpar RS(RCTRL) 0>; key-positions = <RM1 RM2>; layers = <ALP NUM>; require-prior-idle-ms = <150>; };
+		rpar { timeout-ms = <18>; bindings = <&hr_combo_rpar RS(RALT) 0>; key-positions = <RM2 RM3>; layers = <ALP NUM>; require-prior-idle-ms = <150>; };
+	};
+};
