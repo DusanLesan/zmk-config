@@ -19,7 +19,14 @@
 #define HOME_ROW \
 	hold-trigger-on-release; \
 	quick-tap-ms = <175>; \
-	require-prior-idle-ms = <150>; \
+	require-prior-idle-ms = <250>; \
+
+#define COMBO(name, bind, keypos) \
+	combo_ ## name { \
+		timeout-ms = <50>; \
+		bindings = <bind>; \
+		key-positions = <keypos>; \
+	};
 
 &num_word {
 	continue-list = <BSPC DEL DOT COMMA>;
@@ -32,9 +39,11 @@
 
 / {
 	behaviors {
-		bc_del: bc_del { label = "BC_DEL"; MOD_MORPH(&kp BACKSPACE, &kp DELETE) };
+		bc_del: bc_del { label = "BC_DEL"; MOD_MORPH(&kp BSPC, &kp DEL) };
 		lpar_lt: lpar_lt { label = "LPAR_LT"; MOD_MORPH(&kp LPAR, &kp LT) };
 		rpar_gt: rpar_gt { label = "RPAR_GT"; MOD_MORPH(&kp RPAR, &kp GT) };
+		comma_semi: comma_semi { label = "COMMA_SEMI"; MOD_MORPH(&kp COMMA, &kp SEMI) };
+		dot_colon: dot_colon { label = "DOT_COLON"; MOD_MORPH(&kp DOT, &kp COLON) };
 
 		td_num: td_num {
 			compatible = "zmk,behavior-tap-dance";
@@ -61,29 +70,28 @@
 
 	combos {
 		compatible = "zmk,combos";
-		excl { bindings = <&kp EXCL>; key-positions = <LT4 LM4>; };
-		at { bindings = <&kp AT>; key-positions = <LT3 LM3>; };
-		pound { bindings = <&kp POUND>; key-positions = <LT2 LM2>; };
-		dollar { bindings = <&kp DOLLAR>; key-positions = <LT1 LM1>; };
-		percent { bindings = <&kp PERCENT>; key-positions = <LT0 LM0>; };
-		caret { bindings = <&kp CARET>; key-positions = <RT0 RM0>; };
-		plus { bindings = <&kp PLUS>; key-positions = <RT1 RM1>; };
-		astrk { bindings = <&kp ASTRK>; key-positions = <RT2 RM2>; };
-		amps { bindings = <&kp AMPS>; key-positions = <RT3 RM3>; };
-		slsh { bindings = <&kp SLASH>; key-positions = <RM2 RB2>; };
-		pipe { bindings = <&kp PIPE>; key-positions = <RM3 RB3>; };
-		lbrc {bindings = <&kp LEFT_BRACKET>; key-positions = <RB1 RB2>; };
-		rbrc { bindings = <&kp RIGHT_BRACKET>; key-positions = <RB2 RB3>; };
-		dash { bindings = <&kp MINUS>; key-positions = <RM1 RB1>; };
-		equal { bindings = <&kp EQUAL>; key-positions = <LM1 LB1>; };
-		bslh { bindings = <&kp BSLH>; key-positions = <LM2 LB2>; };
-		tild { bindings = <&kp GRAVE>; key-positions = <LM4 LB4>; };
-		tab { bindings = <&kp TAB>; key-positions = <LT1 LT2>; };
-		esc { bindings = <&kp ESC>; key-positions = <LT2 LT3>; };
-		bspc { bindings = <&kp BACKSPACE>; key-positions = <RT2 RT3>; };
-		del { bindings = <&kp DELETE>; key-positions = <RT3 RT4>; };
-
-		lpar { timeout-ms = <18>; bindings = <&hr_combo_lpar RS(RCTRL) 0>; key-positions = <RM1 RM2>; layers = <ALP NUM>; require-prior-idle-ms = <150>; };
-		rpar { timeout-ms = <18>; bindings = <&hr_combo_rpar RS(RALT) 0>; key-positions = <RM2 RM3>; layers = <ALP NUM>; require-prior-idle-ms = <150>; };
+		COMBO(excl, &kp EXCL, LT4 LM4)
+		COMBO(at, &kp AT, LT3 LM3)
+		COMBO(hash, &kp HASH, LT2 LM2)
+		COMBO(dllr, &kp DLLR, LT1 LM1)
+		COMBO(prcnt, &kp PRCNT, LT0 LM0)
+		COMBO(caret, &kp CARET, RT0 RM0)
+		COMBO(plus, &kp PLUS, RT1 RM1)
+		COMBO(astrk, &kp ASTRK, RT2 RM2)
+		COMBO(amps, &kp AMPS, RT3 RM3)
+		COMBO(fslh, &kp FSLH, RM2 RB2)
+		COMBO(pipe, &kp PIPE, RM3 RB3)
+		COMBO(lbkt, &kp LBKT, RB1 RB2)
+		COMBO(rbkt, &kp RBKT, RB2 RB3)
+		COMBO(dash, &kp MINUS, RM1 RB1)
+		COMBO(equal, &kp EQUAL, LM1 LB1)
+		COMBO(bslh, &kp BSLH, LM2 LB2)
+		COMBO(tild, &kp GRAVE, LM4 LB4)
+		COMBO(tab, &kp TAB, LT1 LT2)
+		COMBO(esc, &kp ESC, LT2 LT3)
+		COMBO(bspc, &kp BSPC, RT1 RT2)
+		COMBO(del, &kp DEL, RT2 RT3)
+		COMBO(lpar, &hr_combo_lpar RS(RCTRL) 0, RM1 RM2)
+		COMBO(rpar, &hr_combo_rpar RS(RALT) 0, RM2 RM3)
 	};
 };
