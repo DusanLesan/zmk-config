@@ -1,0 +1,61 @@
+layout: {zmk_keyboard: splitkb_aurora_sweep}
+layers:
+  alpha:
+  - [Q, W, E, R, T]
+  - [Y, U, I, O, P]
+  - [{t: A, h: LGUI}, {t: S, h: LALT}, {t: D, h: LSHIFT}, {t: F, h: LCTRL}, G]
+  - [H, {t: J, h: RCTRL}, {t: K, h: RSHIFT}, {t: L, h: RALT}, {t: '''', h: RGUI}]
+  - [Z, X, C, V, B]
+  - [N, M, {t: ',', s: ';'}, {t: '.', s: ':'}, '/']
+  - [BSPC, {t: SPACE, h: NAV}, {t: ENTER, h: FUN}, NUM]
+  combos:
+  - [Q, W, E, R, T]
+  - [Y, U, I, O, P]
+  - [A, S, D, F, G]
+  - [H, J, K, L, '''']
+  - [Z, X, C, V, B]
+  - [N, M, {t: ',', s: ';'}, {t: '.', s: ':'}, '/']
+  - [BSPC, {t: SPACE, h: NAV}, {t: ENTER, h: FUN}, NUM]
+  FUN:
+  - [F12,F7,F8,F9,'']
+  - [BT_SEL 0, BT_SEL 1, BT_SEL 2, BT_SEL 3, BT_CLR ]
+  - [F11, F4, F5, F6, '']
+  - ['', '', '', '', '']
+  - [F10, F1, F2, F3, '']
+  - [PLAY, STOP, PREV, NEXT, MUTE]
+  - ['', '', {type: held}, '']
+  NAV:
+  - ['', '', '', '', '']
+  - [PAGE UP, HOME, UP, END, DEL]
+  - ['', '', '', '', '']
+  - [PAGE DOWN, LEFT, DOWN, RIGHT, INS]
+  - ['', '', '', '', '']
+  - ['', '', '', '', PSCRN]
+  - ['', {type: held}, '', '']
+combos:
+- { p: [0, 10], k: '!', l: [combos] }
+- { p: [1, 11], k: '@', l: [combos] }
+- { p: [2, 12], k: '#', l: [combos] }
+- { p: [3, 13], k: '$', l: [combos] }
+- { p: [4, 14], k: '%', l: [combos] }
+- { p: [5, 15], k: '^', l: [combos] }
+- { p: [6, 16], k: '+', l: [combos] }
+- { p: [7, 17], k: '*', l: [combos] }
+- { p: [8, 18], k: '&', l: [combos] }
+
+- { p: [10, 20], k: '`', l: [combos] }
+- { p: [12, 22], k: '\', l: [combos] }
+- { p: [13, 23], k: '=', l: [combos] }
+- { p: [16, 26], k: '-', l: [combos] }
+- { p: [17, 27], k: '/', l: [combos] }
+- { p: [18, 28], k: '|', l: [combos] }
+
+- { p: [1, 2], k: ESC, l: [combos] }
+- { p: [2, 3], k: TAB, l: [combos] }
+- { p: [6, 7], k: BSPC, l: [combos] }
+- { p: [7, 8], k: DEL, l: [combos] }
+
+- { p: [16, 17], k: '( <', l: [combos] }
+- { p: [17, 18], k: ') >', l: [combos] }
+- { p: [26, 27], k: '[ {', l: [combos] }
+- { p: [27, 28], k: '] }', l: [combos] }
