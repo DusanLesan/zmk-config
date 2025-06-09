@@ -10,44 +10,22 @@
 
 #include "common.dtsi"
 
+#define BINDINGS(PREFIX, NAME) \
+	NAME { \
+		bindings = < \
+			PREFIX##_TOP_ROW_L     PREFIX##_TOP_ROW_R \
+			PREFIX##_HOME_ROW_L    PREFIX##_HOME_ROW_R \
+			PREFIX##_BOTTOM_ROW_L  PREFIX##_BOTTOM_ROW_R \
+			PREFIX##_THUMB_ROW \
+		>; \
+	}
+
 / {
 	keymap {
 		compatible = "zmk,keymap";
-
-		alpha {
-			bindings = <
-				A_TOP_ROW_L     A_TOP_ROW_R
-				A_HOME_ROW_L    A_HOME_ROW_R
-				A_BOTTOM_ROW_L  A_BOTTOM_ROW_R
-				A_THUMB_ROW
-			>;
-		};
-
-		num {
-			bindings = <
-				N_TOP_ROW_L     N_TOP_ROW_R
-				N_HOME_ROW_L    N_HOME_ROW_R
-				N_BOTTOM_ROW_L  N_BOTTOM_ROW_R
-				N_THUMB_ROW
-			>;
-		};
-
-		nav {
-			bindings = <
-				M_TOP_ROW_L     M_TOP_ROW_R
-				M_HOME_ROW_L    M_HOME_ROW_R
-				M_BOTTOM_ROW_L  M_BOTTOM_ROW_R
-				M_THUMB_ROW
-			>;
-		};
-
-		funct {
-			bindings = <
-				F_TOP_ROW_L     F_TOP_ROW_R
-				F_HOME_ROW_L    F_HOME_ROW_R
-				F_BOTTOM_ROW_L  F_BOTTOM_ROW_R
-				F_THUMB_ROW
-			>;
-		};
+		BINDINGS(A, alpha);
+		BINDINGS(N, num);
+		BINDINGS(M, nav);
+		BINDINGS(F, funct);
 	};
 };

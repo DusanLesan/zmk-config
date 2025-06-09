@@ -10,44 +10,26 @@
 
 #include "common.dtsi"
 
+#define BINDINGS(PREFIX, NAME, TL, TR, HL, HR, BL, BC1, BC2, BC3, BC4, BR, THL1, THL2, THL3, THR1, THR2, THR3) \
+	NAME { \
+		bindings = < \
+			TL PREFIX##_TOP_ROW_L                       PREFIX##_TOP_ROW_R TR \
+			HL PREFIX##_HOME_ROW_L                     PREFIX##_HOME_ROW_R HR \
+			BL PREFIX##_BOTTOM_ROW_L BC1 BC2 BC3 BC4 PREFIX##_BOTTOM_ROW_R BR \
+			THL1 THL2 THL3          PREFIX##_THUMB_ROW         THR1 THR2 THR3 \
+		>; \
+	}
+
 / {
 	keymap {
 		compatible = "zmk,keymap";
 
-		alpha {
-			bindings = <
-				&kp ESC   A_TOP_ROW_L                                                        A_TOP_ROW_R      &bc_del
-				&kp TAB   A_HOME_ROW_L                                                       A_HOME_ROW_R     &kp SQT
-				&kp CAPS  A_BOTTOM_ROW_L  &kp K_FORWARD  &kp LSHFT   &l_tap 3 3  &kp K_BACK  A_BOTTOM_ROW_R  &kp BSLH
-				&kp LCTRL &kp LALT &kp LGUI               A_THUMB_ROW               &kp RGUI &kp RIGHT_ALT &kp K_MENU
-			>;
-		};
+		BINDINGS(A, alpha, &kp ESC, &bc_del, &kp TAB, &kp SQT,
+			&kp CAPS, &kp K_FORWARD, &kp LSHFT, &l_tap 3 3, &kp K_BACK, &kp BSLH,
+			&kp LCTRL, &kp LALT, &kp LGUI, &kp RGUI, &kp RIGHT_ALT, &kp K_MENU);
 
-		num {
-			bindings = <
-				&trans N_TOP_ROW_L                                     N_TOP_ROW_R
-				&trans N_HOME_ROW_L                                   N_HOME_ROW_R
-				&trans N_BOTTOM_ROW_L &trans &trans   &trans &trans N_BOTTOM_ROW_R
-				&trans &trans &trans           N_THUMB_ROW    &trans &trans &trans
-			>;
-		};
-
-		nav {
-			bindings = <
-				&trans M_TOP_ROW_L                                     M_TOP_ROW_R
-				&trans M_HOME_ROW_L                                   M_HOME_ROW_R
-				&trans M_BOTTOM_ROW_L &trans &trans   &trans &trans M_BOTTOM_ROW_R
-				&trans &trans &trans           M_THUMB_ROW    &trans &trans &trans
-			>;
-		};
-
-		funct {
-			bindings = <
-				&trans F_TOP_ROW_L                                     F_TOP_ROW_R
-				&trans F_HOME_ROW_L                                   F_HOME_ROW_R
-				&trans F_BOTTOM_ROW_L &trans &trans   &trans &trans F_BOTTOM_ROW_R
-				&trans &trans &trans           F_THUMB_ROW    &trans &trans &trans
-			>;
-		};
+		BINDINGS(N, num, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans);
+		BINDINGS(M, nav, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans);
+		BINDINGS(F, funct, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans);
 	};
 };
