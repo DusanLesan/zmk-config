@@ -4,8 +4,6 @@
 #include <behaviors/num_word.dtsi>
 #include "50.h"
 
-#define GAM 4
-
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 30 31
 #define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 32 33 34 35 36 37 38 39
 #define THUMBS 40 41 42 43 44 45 46 47 48 49
@@ -18,71 +16,37 @@
 
 		alpha {
 			bindings = <
-//╭────────┬───────────┬───────────┬────────────┬────────────┬──────────────╮                                                         ╭────────┬─────────────┬───────────┬───────────┬──────────────┬─────────╮
-   &kp ESC  &kp Q         &kp W       &kp E        &kp R          &kp T                                                                  &kp Y     &kp U         &kp I        &kp O       &kp P       &bc_del
-//├────────┼───────────┼───────────┼────────────┼────────────┼──────────────┤                                                         ├────────┼─────────────┼───────────┼───────────┼──────────────┼─────────┤
-   &kp TAB  &hml LGUI A &hml LALT S &hml LSHFT D &hml LCTRL F &hml LGUI G                                                                &kp H  &hmr RCTRL J &hmr RSHFT K &hmr RALT L &hmr RGUI SEMI  &kp SQT
-//├────────┼───────────┼───────────┼────────────┼────────────┼──────────────┼───────────────┬──────────────╮ ╭────────────┬───────────┼────────┼─────────────┼───────────┼───────────┼──────────────┼─────────┤
-   &kp CAPS    &kp Z       &kp X        &kp C         &kp V       &kp B       &kp K_FORWARD    &kp LSHFT       &l_tap 3 3  &kp K_BACK    &kp N      &kp M      &kp COMMA    &kp DOT     &kp FSLH     &kp BSLH
-//╰────────┴───────────┴───────────┼────────────┼────────────┼──────────────┼───────────────┼──────────────┤ ├────────────┼───────────┼────────┼─────────────┼───────────┼───────────┴──────────────┴─────────╯
-									 &kp LCTRL     &kp LALT      &kp LGUI    &mt LCTRL SPACE &lt 2 SPACE     &mt RSHFT RET &lt_num 1 0 &kp RGUI &kp RIGHT_ALT &kp K_MENU
-//								   ╰────────────┴────────────┴──────────────┴───────────────┴──────────────╯ ╰────────────┴───────────┴────────┴─────────────┴───────────╯
+				&kp ESC   A_TOP_ROW_L                                                        A_TOP_ROW_R      &bc_del
+				&kp TAB   A_HOME_ROW_L                                                       A_HOME_ROW_R     &kp SQT
+				&kp CAPS  A_BOTTOM_ROW_L  &kp K_FORWARD  &kp LSHFT   &l_tap 3 3  &kp K_BACK  A_BOTTOM_ROW_R  &kp BSLH
+				&kp LCTRL &kp LALT &kp LGUI               A_THUMB_ROW               &kp RGUI &kp RIGHT_ALT &kp K_MENU
 			>;
 		};
 
 		num {
 			bindings = <
-//╭──────┬──────┬───────┬──────┬──────┬───────╮                            ╭──────┬──────┬──────┬──────┬──────┬───────╮
-   &trans &trans &kp N7  &kp N8 &kp N9 &trans                               &trans &trans &trans &trans &trans &trans
-//├──────┼──────┼───────┼──────┼──────┼───────┤                            ├──────┼──────┼──────┼──────┼──────┼───────┤
-   &trans &trans &kp N4  &kp N5 &kp N6 &trans                               &trans &trans &trans &trans &trans &trans
-//├──────┼──────┼───────┼──────┼──────┼───────┼─────┬──────╮ ╭──────┬──────┼──────┼──────┼──────┼──────┼──────┼───────┤
-   &trans &kp N0 &kp N1  &kp N2 &kp N3 &trans &trans &trans   &trans &trans &trans &trans &trans &trans &trans &trans
-//╰──────┴──────┴───────┼──────┼──────┼───────┼─────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┴──────┴───────╯
-						 &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans
-//						╰──────┴──────┴───────┴─────┴──────╯ ╰──────┴──────┴──────┴──────┴──────╯
+				&trans N_TOP_ROW_L                                     N_TOP_ROW_R
+				&trans N_HOME_ROW_L                                   N_HOME_ROW_R
+				&trans N_BOTTOM_ROW_L &trans &trans   &trans &trans N_BOTTOM_ROW_R
+				&trans &trans &trans           N_THUMB_ROW    &trans &trans &trans
 			>;
 		};
 
 		nav {
 			bindings = <
-//╭──────┬──────┬───────┬──────┬──────┬──────╮                              ╭─────────┬────────┬────────┬─────────┬────────────┬─────────╮
-   &trans &trans &trans  &trans &trans &trans                                &kp PG_UP &kp HOME &kp UP    &kp END  &kp C_VOL_UP  &kp DEL
-//├──────┼──────┼───────┼──────┼──────┼──────┤                              ├─────────┼────────┼────────┼─────────┼────────────┼─────────┤
-   &trans &trans &trans  &trans &trans &trans                                &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp C_VOL_DN &kp INS
-//├──────┼──────┼───────┼──────┼──────┼──────┼──────┬───────╮ ╭──────┬──────┼─────────┼────────┼────────┼─────────┼────────────┼─────────┤
-   &trans &trans &trans  &trans &trans &trans &trans &trans    &trans &trans &trans     &trans   &trans    &trans     &trans    &kp PSCRN
-//╰──────┴──────┴───────┼──────┼──────┼──────┼──────┼───────┤ ├──────┼──────┼─────────┼────────┼────────┼─────────┴────────────┴─────────╯
-						 &trans &trans &trans &trans &to 0     &trans &trans   &trans   &trans   &trans
-//						╰──────┴──────┴──────┴──────┴───────╯ ╰──────┴──────┴─────────┴────────┴────────╯
+				&trans M_TOP_ROW_L                                     M_TOP_ROW_R
+				&trans M_HOME_ROW_L                                   M_HOME_ROW_R
+				&trans M_BOTTOM_ROW_L &trans &trans   &trans &trans M_BOTTOM_ROW_R
+				&trans &trans &trans           M_THUMB_ROW    &trans &trans &trans
 			>;
 		};
 
 		funct {
 			bindings = <
-//╭──────┬───────┬──────┬──────┬──────┬──────╮                             ╭────────────┬────────────┬────────────┬────────────┬────────────┬──────────╮
-   &trans &kp F12 &kp F7 &kp F8 &kp F9 &trans                               &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
-//├──────┼───────┼──────┼──────┼──────┼──────┤                             ├────────────┼────────────┼────────────┼────────────┼────────────┼──────────┤
-   &trans &kp F11 &kp F4 &kp F5 &kp F6 &trans                                  &trans        &trans       &trans       &trans       &trans      &trans
-//├──────┼───────┼──────┼──────┼──────┼──────┼──────┬──────╮ ╭──────┬──────┼────────────┼────────────┼────────────┼────────────┼────────────┼──────────┤
-   &trans &kp F10 &kp F1 &kp F2 &kp F3 &trans &trans &trans   &to 0  &to 4  &kp C_PLAY    &kp C_STOP   &kp C_PREV   &kp C_NEXT   &kp C_MUTE &trans
-//╰───────┴──────┴──────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼────────────┼────────────┼────────────┼────────────┴────────────┴──────────╯
-						 &trans &trans &trans &trans &trans   &trans &trans   &trans        &trans       &trans
-//						╰──────┴──────┴──────┴──────┴──────╯ ╰──────┴──────┴────────────┴────────────┴────────────╯
-			>;
-		};
-
-		game {
-			bindings = <
-//╭──────┬──────┬───────┬──────┬──────┬──────╮                             ╭──────┬──────┬──────┬──────┬──────┬───────╮
-   &trans &trans  &kp Q  &kp W  &kp E  &kp R                                &trans &trans &trans &trans &trans &trans
-//├──────┼──────┼───────┼──────┼──────┼──────┤                             ├──────┼──────┼──────┼──────┼──────┼───────┤
-   &trans &trans  &kp A  &kp S  &kp D  &kp F                                &trans &trans &trans &trans &trans &trans
-//├──────┼──────┼───────┼──────┼──────┼──────┼──────┬──────╮ ╭──────┬──────┼──────┼──────┼──────┼──────┼──────┼───────┤
-   &tog 0 &trans  &kp Z  &kp X  &kp C  &kp V  &kp G  &kp I    &trans &trans &trans &trans &trans &trans &trans &tog 0
-//╰──────┴──────┴───────┼──────┼──────┼──────┼──────┼──────┤ ├──────┼──────┼──────┼──────┼──────┼──────┴──────┴───────╯
-						 &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans
-//						╰──────┴──────┴──────┴──────┴──────╯ ╰──────┴──────┴──────┴──────┴──────╯
+				&trans F_TOP_ROW_L                                     F_TOP_ROW_R
+				&trans F_HOME_ROW_L                                   F_HOME_ROW_R
+				&trans F_BOTTOM_ROW_L &trans &trans   &trans &trans F_BOTTOM_ROW_R
+				&trans &trans &trans           F_THUMB_ROW    &trans &trans &trans
 			>;
 		};
 	};

@@ -3,6 +3,38 @@
 #define NAV 2
 #define FUN 3
 
+#define A_TOP_ROW_L &kp Q &kp W &kp E &kp R &kp T
+#define A_TOP_ROW_R &kp Y &kp U &kp I &kp O &kp P
+#define A_HOME_ROW_L &hml LGUI A &hml LALT S &hml LSHFT D &hml LCTRL F &hml LGUI G
+#define A_HOME_ROW_R &kp H &hmr RCTRL J &hmr RSHFT K &hmr RALT L &hmr RGUI SQT
+#define A_BOTTOM_ROW_L &kp Z &kp X &kp C &kp V &kp B
+#define A_BOTTOM_ROW_R &kp N &kp M &comma_semi &dot_colon &kp FSLH
+#define A_THUMB_ROW &kp BSPC &lt NAV SPACE &lt FUN RET &lt_num NUM 0
+
+#define N_TOP_ROW_L &trans &kp N7 &kp N8 &kp N9 &trans
+#define N_TOP_ROW_R &trans &trans &trans &trans &trans
+#define N_HOME_ROW_L &trans &kp N4 &kp N5 &kp N6 &trans
+#define N_HOME_ROW_R &trans &trans &trans &trans &trans
+#define N_BOTTOM_ROW_L &kp N0 &kp N1 &kp N2 &kp N3 &trans
+#define N_BOTTOM_ROW_R &trans &trans &trans &trans &trans
+#define N_THUMB_ROW &trans &trans &trans &trans
+
+#define M_TOP_ROW_L &trans &trans &trans &trans &trans
+#define M_TOP_ROW_R &kp PG_UP &kp HOME &kp UP &kp END &kp DEL
+#define M_HOME_ROW_L &trans &trans &trans &trans &trans
+#define M_HOME_ROW_R &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp INS
+#define M_BOTTOM_ROW_L &trans &trans &trans &trans &trans
+#define M_BOTTOM_ROW_R &trans &trans &trans &trans &kp PSCRN
+#define M_THUMB_ROW &trans &trans &trans &trans
+
+#define F_TOP_ROW_L &kp F12 &kp F7 &kp F8 &kp F9 &trans
+#define F_TOP_ROW_R &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR
+#define F_HOME_ROW_L &kp F11 &kp F4 &kp F5 &kp F6 &trans
+#define F_HOME_ROW_R &trans &trans &trans &trans &trans
+#define F_BOTTOM_ROW_L &kp F10 &kp F1 &kp F2 &kp F3 &trans
+#define F_BOTTOM_ROW_R &kp C_PLAY &kp C_STOP &kp C_PREV &kp C_NEXT &kp C_MUTE
+#define F_THUMB_ROW &trans &trans &trans &trans
+
 #define MOD_MORPH(bind1, bind2) \
 	compatible = "zmk,behavior-mod-morph"; \
 	#binding-cells = <0>; \
