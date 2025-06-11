@@ -2,6 +2,7 @@
 #define NUM 1
 #define NAV 2
 #define FUN 3
+#define SR 4
 
 #define A_TOP_ROW_L &kp Q &kp W &kp E &kp R &kp T
 #define A_TOP_ROW_R &kp Y &kp U &kp I &kp O &kp P
@@ -9,7 +10,7 @@
 #define A_HOME_ROW_R &kp H &hmr RCTRL J &hmr RSHFT K &hmr RALT L &hmr RGUI SQT
 #define A_BOTTOM_ROW_L &kp Z &kp X &kp C &kp V &kp B
 #define A_BOTTOM_ROW_R &kp N &kp M &comma_semi &dot_colon &kp FSLH
-#define A_THUMB_ROW &kp BSPC &lt NAV SPACE &lt FUN RET &lt_num NUM 0
+#define A_THUMB_ROW &sl SR &lt NAV SPACE &lt FUN RET &lt_num NUM 0
 
 #define N_TOP_ROW_L &trans &kp N7 &kp N8 &kp N9 &trans
 #define N_TOP_ROW_R &trans &trans &trans &trans &trans
@@ -35,11 +36,37 @@
 #define F_BOTTOM_ROW_R &kp C_PLAY &kp C_STOP &kp C_PREV &kp C_NEXT &kp C_MUTE
 #define F_THUMB_ROW &trans &trans &trans &trans
 
-#define MOD_MORPH(bind1, bind2) \
-	compatible = "zmk,behavior-mod-morph"; \
-	#binding-cells = <0>; \
-	mods = <(MOD_LSFT|MOD_RSFT)>; \
-	bindings = <bind1>, <bind2>;
+#define S_TOP_ROW_L &trans &trans &trans &trans &trans
+#define S_TOP_ROW_R &trans &trans &trans &trans &trans
+#define S_HOME_ROW_L &trans &sr_s_caron &sr_d_stroke &trans &trans
+#define S_HOME_ROW_R &trans &trans &trans &trans &trans
+#define S_BOTTOM_ROW_L &sr_z_caron &trans &sr_accented_c &trans &trans
+#define S_BOTTOM_ROW_R &trans &trans &trans &trans &trans
+#define S_THUMB_ROW &trans &trans &trans &trans
+
+#define MOD_MORPH(name, bind1, bind2, mods_val) \
+	name: name { \
+		compatible = "zmk,behavior-mod-morph"; \
+		#binding-cells = <0>; \
+		mods = mods_val; \
+		bindings = <bind1>, <bind2>; \
+	};
+
+#define UC_MOD_MORPH(name) \
+	MOD_MORPH(name, &name ## _lower, &name ## _upper, <(MOD_LSFT|MOD_RSFT)>)
+
+#define UC_MACRO(name, unicode_bindings) \
+	name: name { \
+		compatible = "zmk,behavior-macro"; \
+		wait-ms = <0>; \
+		tap-ms = <0>; \
+		#binding-cells = <0>; \
+		bindings = <&macro_tap &kp LS(LC(U))>, <&macro_tap unicode_bindings>, <&macro_tap &kp SPACE>; \
+	};
+
+#define UNICODE_MACRO_PAIR(name, L0, L1, L2, L3, U0, U1, U2, U3) \
+	UC_MACRO(name ## _lower, &kp L0 &kp L1 &kp L2 &kp L3) \
+	UC_MACRO(name ## _upper, &kp U0 &kp U1 &kp U2 &kp U3)
 
 #define HOLD_TAP(tap, hold) \
 	compatible = "zmk,behavior-hold-tap"; \
@@ -71,11 +98,11 @@
 
 / {
 	behaviors {
-		bc_del: bc_del { label = "BC_DEL"; MOD_MORPH(&kp BSPC, &kp DEL) };
-		lpar_lt: lpar_lt { label = "LPAR_LT"; MOD_MORPH(&kp LPAR, &kp LT) };
-		rpar_gt: rpar_gt { label = "RPAR_GT"; MOD_MORPH(&kp RPAR, &kp GT) };
-		comma_semi: comma_semi { label = "COMMA_SEMI"; MOD_MORPH(&kp COMMA, &kp SEMI) };
-		dot_colon: dot_colon { label = "DOT_COLON"; MOD_MORPH(&kp DOT, &kp COLON) };
+		MOD_MORPH(bc_del, &kp BSPC, &kp DEL, <(MOD_LSFT|MOD_RSFT)>)
+		MOD_MORPH(lpar_lt, &kp LPAR, &kp LT, <(MOD_LSFT|MOD_RSFT)>)
+		MOD_MORPH(rpar_gt, &kp RPAR, &kp GT, <(MOD_LSFT|MOD_RSFT)>)
+		MOD_MORPH(comma_semi, &kp COMMA, &kp SEMI, <(MOD_LSFT|MOD_RSFT)>)
+		MOD_MORPH(dot_colon, &kp DOT, &kp COLON, <(MOD_LSFT|MOD_RSFT)>)
 
 		td_num: td_num {
 			compatible = "zmk,behavior-tap-dance";
@@ -98,6 +125,13 @@
 		hmr: hmr { label = "HMR"; hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };
 		hr_combo_lpar: hr_combo_lpar { hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &lpar_lt) };
 		hr_combo_rpar: hr_combo_rpar { hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &rpar_gt) };
+
+		UC_MOD_MORPH(sr_c_caron) // č / Č
+		UC_MOD_MORPH(sr_s_caron) // š / Š
+		UC_MOD_MORPH(sr_z_caron) // ž / Ž
+		UC_MOD_MORPH(sr_d_stroke) // đ / Đ
+		UC_MOD_MORPH(sr_c_acute) // ć / Ć
+		MOD_MORPH(sr_accented_c, &sr_c_caron, &sr_c_acute, <(MOD_LCTL|MOD_RCTL)>)
 	};
 
 	combos {
@@ -125,5 +159,13 @@
 		COMBO(del, &kp DEL, RT2 RT3)
 		COMBO(lpar, &hr_combo_lpar RS(RCTRL) 0, RM1 RM2)
 		COMBO(rpar, &hr_combo_rpar RS(RALT) 0, RM2 RM3)
+	};
+
+	macros {
+		UNICODE_MACRO_PAIR(sr_c_caron, N0,N1,N0,D, N0,N1,N0,C)  // č / Č
+		UNICODE_MACRO_PAIR(sr_s_caron, N0,N1,N6,N1, N0,N1,N6,N0)  // š / Š
+		UNICODE_MACRO_PAIR(sr_z_caron, N0,N1,N7,E, N0,N1,N7,D)  // ž / Ž
+		UNICODE_MACRO_PAIR(sr_d_stroke, N0,N1,N1,N1, N0,N1,N1,N0)  // đ / Đ
+		UNICODE_MACRO_PAIR(sr_c_acute, N0,N1,N0,N7, N0,N1,N0,N6)  // ć / Ć
 	};
 };

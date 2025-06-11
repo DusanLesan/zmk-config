@@ -27,5 +27,6 @@
 		BINDINGS(N, num);
 		BINDINGS(M, nav);
 		BINDINGS(F, funct);
+		BINDINGS(S, sr);
 	};
 };
