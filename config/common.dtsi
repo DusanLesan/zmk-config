@@ -25,7 +25,7 @@
 #define M_HOME_ROW_L &trans &trans &trans &trans &trans
 #define M_HOME_ROW_R &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp INS
 #define M_BOTTOM_ROW_L &trans &trans &trans &trans &trans
-#define M_BOTTOM_ROW_R &trans &trans &trans &trans &kp PSCRN
+#define M_BOTTOM_ROW_R &trans &trans &trans &kp PAUSE_BREAK &kp PSCRN
 #define M_THUMB_ROW &trans &trans &trans &trans
 
 #define F_TOP_ROW_L &kp F12 &kp F7 &kp F8 &kp F9 &trans
