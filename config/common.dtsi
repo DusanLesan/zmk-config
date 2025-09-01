@@ -80,21 +80,16 @@
 	quick-tap-ms = <175>; \
 	require-prior-idle-ms = <250>; \
 
-#define COMBO(name, bind, keypos) \
+#define COMBO_FULL(name, bind, keypos, timeout_val, idle_val) \
 	combo_ ## name { \
-		timeout-ms = <60>; \
+		timeout-ms = <timeout_val>; \
 		bindings = <bind>; \
 		key-positions = <keypos>; \
-		require-prior-idle-ms = <50>; \
+		require-prior-idle-ms = <idle_val>; \
 	};
 
-#define COMBO_FAST(name, bind, keypos) \
-	combo_ ## name { \
-		timeout-ms = <30>; \
-		bindings = <bind>; \
-		key-positions = <keypos>; \
-		require-prior-idle-ms = <120>; \
-	};
+#define COMBO_FAST(name, bind, keypos) COMBO_FULL(name, bind, keypos, 30, 120)
+#define COMBO(name, bind, keypos) COMBO_FULL(name, bind, keypos, 60, 50)
 
 &num_word {
 	continue-list = <BSPC DEL DOT COMMA>;
