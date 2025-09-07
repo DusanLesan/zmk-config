@@ -28,9 +28,9 @@ layers:
   - [F12,F7,F8,F9,'']
   - [BT_SEL 0, BT_SEL 1, BT_SEL 2, BT_SEL 3, BT_CLR ]
   - [F11, F4, F5, F6, '']
-  - ['', '', '', '', '']
+  - ['MUTE', 'VOL DOWN', 'VOL UP', '', '']
   - [F10, F1, F2, F3, '']
-  - [PLAY, STOP, PREV, NEXT, MUTE]
+  - [PLAY, NEXT, PREV, STOP, '']
   - ['', '', {type: held}, '']
   NAV:
   - ['', '', '', '', '']
