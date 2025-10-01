@@ -42,7 +42,7 @@
 #define S_HOME_ROW_R &trans &trans &trans &trans &trans
 #define S_BOTTOM_ROW_L &sr_z_caron &trans &sr_accented_c &trans &trans
 #define S_BOTTOM_ROW_R &trans &trans &trans &trans &trans
-#define S_THUMB_ROW &trans &trans &trans &trans
+#define S_THUMB_ROW &kp NUBS &trans &trans &trans
 
 #define MOD_MORPH(name, bind1, bind2, mods_val) \
 	name: name { \
