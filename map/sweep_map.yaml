@@ -7,7 +7,7 @@ layers:
   - [H, {t: J, h: RCTRL}, {t: K, h: RSHIFT}, {t: L, h: RALT}, {t: '''', h: RGUI}]
   - [Z, X, C, V, B]
   - [N, M, {t: ',', s: ';'}, {t: '.', s: ':'}, '/']
-  - [SR, {t: SPACE, h: NAV}, {t: ENTER, h: FUN}, NUM]
+  - [CPS, {t: SPACE, h: NAV}, {t: ENTER, h: FUN}, NUM]
   combos:
   - [Q, W, E, R, T]
   - [Y, U, I, O, P]
@@ -40,14 +40,6 @@ layers:
   - ['', '', '', '', '']
   - ['', '', '', 'PAUSE BREAK', PSCRN]
   - ['', {type: held}, '', '']
-  SR:
-  - ['', '', '', '', '']
-  - ['', '', '', '', '']
-  - ['', 'Š', 'Đ', '', '']
-  - ['', '', '', '', '']
-  - ['Ž', '', {t: 'Č', h: 'Ć'}, '', '']
-  - ['', '', '', '', '']
-  - [{type: held}, '',  '', '']
 combos:
 - { p: [0, 10], k: '!', l: [combos] }
 - { p: [1, 11], k: '@', l: [combos] }

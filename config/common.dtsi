@@ -2,7 +2,6 @@
 #define NUM 1
 #define NAV 2
 #define FUN 3
-#define SR 4
 
 #define A_TOP_ROW_L &kp Q &kp W &kp E &kp R &kp T
 #define A_TOP_ROW_R &kp Y &kp U &kp I &kp O &kp P
@@ -10,7 +9,7 @@
 #define A_HOME_ROW_R &kp H &hmr RCTRL J &hmr RSHFT K &hmr RALT L &hmr RGUI SQT
 #define A_BOTTOM_ROW_L &kp Z &kp X &kp C &kp V &kp B
 #define A_BOTTOM_ROW_R &kp N &kp M &comma_semi &dot_colon &kp FSLH
-#define A_THUMB_ROW &sl SR &lt NAV SPACE &lt FUN RET &lt_num NUM 0
+#define A_THUMB_ROW &kp NUBS &lt NAV SPACE &lt FUN RET &lt_num NUM 0
 
 #define N_TOP_ROW_L &trans &kp N7 &kp N8 &kp N9 &trans
 #define N_TOP_ROW_R &trans &trans &trans &trans &trans
@@ -36,14 +35,6 @@
 #define F_BOTTOM_ROW_R &kp C_PLAY &kp C_NEXT &kp C_PREV &kp C_STOP &trans
 #define F_THUMB_ROW &trans &trans &trans &trans
 
-#define S_TOP_ROW_L &trans &trans &trans &trans &trans
-#define S_TOP_ROW_R &trans &trans &trans &trans &trans
-#define S_HOME_ROW_L &trans &sr_s_caron &sr_d_stroke &trans &trans
-#define S_HOME_ROW_R &trans &trans &trans &trans &trans
-#define S_BOTTOM_ROW_L &sr_z_caron &trans &sr_accented_c &trans &trans
-#define S_BOTTOM_ROW_R &trans &trans &trans &trans &trans
-#define S_THUMB_ROW &kp NUBS &trans &trans &trans
-
 #define MOD_MORPH(name, bind1, bind2, mods_val) \
 	name: name { \
 		compatible = "zmk,behavior-mod-morph"; \
@@ -51,22 +42,6 @@
 		mods = mods_val; \
 		bindings = <bind1>, <bind2>; \
 	};
-
-#define UC_MOD_MORPH(name) \
-	MOD_MORPH(name, &name ## _lower, &name ## _upper, <(MOD_LSFT|MOD_RSFT)>)
-
-#define UC_MACRO(name, unicode_bindings) \
-	name: name { \
-		compatible = "zmk,behavior-macro"; \
-		wait-ms = <0>; \
-		tap-ms = <0>; \
-		#binding-cells = <0>; \
-		bindings = <&macro_tap &kp LS(LC(U))>, <&macro_tap unicode_bindings>, <&macro_tap &kp SPACE>; \
-	};
-
-#define UNICODE_MACRO_PAIR(name, L0, L1, L2, L3, U0, U1, U2, U3) \
-	UC_MACRO(name ## _lower, &kp L0 &kp L1 &kp L2 &kp L3) \
-	UC_MACRO(name ## _upper, &kp U0 &kp U1 &kp U2 &kp U3)
 
 #define HOLD_TAP(tap, hold) \
 	compatible = "zmk,behavior-hold-tap"; \
@@ -78,7 +53,7 @@
 #define HOME_ROW \
 	hold-trigger-on-release; \
 	quick-tap-ms = <175>; \
-	require-prior-idle-ms = <250>; \
+	require-prior-idle-ms = <120>; \
 
 #define COMBO_FULL(name, bind, keypos, timeout_val, idle_val) \
 	combo_ ## name { \
@@ -129,13 +104,6 @@
 		hmr: hmr { label = "HMR"; hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };
 		hr_combo_lpar: hr_combo_lpar { hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &lpar_lt) };
 		hr_combo_rpar: hr_combo_rpar { hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &rpar_gt) };
-
-		UC_MOD_MORPH(sr_c_caron) // č / Č
-		UC_MOD_MORPH(sr_s_caron) // š / Š
-		UC_MOD_MORPH(sr_z_caron) // ž / Ž
-		UC_MOD_MORPH(sr_d_stroke) // đ / Đ
-		UC_MOD_MORPH(sr_c_acute) // ć / Ć
-		MOD_MORPH(sr_accented_c, &sr_c_caron, &sr_c_acute, <(MOD_LCTL|MOD_RCTL)>)
 	};
 
 	combos {
@@ -163,13 +131,5 @@
 		COMBO_FAST(esc, &kp ESC, LT2 LT3)
 		COMBO_FAST(bspc, &kp BSPC, RT1 RT2)
 		COMBO_FAST(del, &kp DEL, RT2 RT3)
-	};
-
-	macros {
-		UNICODE_MACRO_PAIR(sr_c_caron, N0,N1,N0,D, N0,N1,N0,C)  // č / Č
-		UNICODE_MACRO_PAIR(sr_s_caron, N0,N1,N6,N1, N0,N1,N6,N0)  // š / Š
-		UNICODE_MACRO_PAIR(sr_z_caron, N0,N1,N7,E, N0,N1,N7,D)  // ž / Ž
-		UNICODE_MACRO_PAIR(sr_d_stroke, N0,N1,N1,N1, N0,N1,N1,N0)  // đ / Đ
-		UNICODE_MACRO_PAIR(sr_c_acute, N0,N1,N0,N7, N0,N1,N0,N6)  // ć / Ć
 	};
 };
