@@ -1,7 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <behaviors/num_word.dtsi>
 #include "50.h"
 
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 30 31
@@ -25,7 +24,7 @@
 		compatible = "zmk,keymap";
 
 		BINDINGS(A, alpha, &kp ESC, &bc_del, &kp TAB, &kp SQT,
-			&kp CAPS, &kp K_FORWARD, &kp LSHFT, &l_tap 3 3, &kp K_BACK, &kp BSLH,
+			&kp CAPS, &kp K_FORWARD, &kp LSHFT, &kp K_FORWARD, &kp K_BACK, &kp BSLH,
 			&kp LCTRL, &kp LALT, &kp LGUI, &kp RGUI, &kp RIGHT_ALT, &kp K_MENU);
 
 		BINDINGS(N, num, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans, &trans);

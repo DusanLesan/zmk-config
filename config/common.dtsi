@@ -9,7 +9,7 @@
 #define A_HOME_ROW_R &kp H &hmr RCTRL J &hmr RSHFT K &hmr RALT L &hmr RGUI SQT
 #define A_BOTTOM_ROW_L &kp Z &kp X &kp C &kp V &kp B
 #define A_BOTTOM_ROW_R &kp N &kp M &comma_semi &dot_colon &kp FSLH
-#define A_THUMB_ROW &kp NUBS &lt NAV SPACE &lt FUN RET &lt_num NUM 0
+#define A_THUMB_ROW &kp NUBS &lt NAV SPACE &lt FUN RET &lt NUM K_CMENU
 
 #define N_TOP_ROW_L &trans &kp N7 &kp N8 &kp N9 &trans
 #define N_TOP_ROW_R &trans &trans &trans &trans &trans
@@ -66,10 +66,6 @@
 #define COMBO_FAST(name, bind, keypos) COMBO_FULL(name, bind, keypos, 30, 120)
 #define COMBO(name, bind, keypos) COMBO_FULL(name, bind, keypos, 60, 50)
 
-&num_word {
-	continue-list = <BSPC DEL DOT COMMA>;
-};
-
 &lt {
 	tapping-term-ms = <300>;
 	flavor = "hold-preferred";
@@ -82,23 +78,6 @@
 		MOD_MORPH(rpar_gt, &kp RPAR, &kp GT, <(MOD_LSFT|MOD_RSFT)>)
 		MOD_MORPH(comma_semi, &kp COMMA, &kp SEMI, <(MOD_LSFT|MOD_RSFT)>)
 		MOD_MORPH(dot_colon, &kp DOT, &kp COLON, <(MOD_LSFT|MOD_RSFT)>)
-
-		td_num: td_num {
-			compatible = "zmk,behavior-tap-dance";
-			#binding-cells = <0>;
-			tapping-term-ms = <200>;
-			bindings = <&num_word NUM>, <&sl NUM>;
-		};
-
-		lt_num: lt_num {
-			label = "LT_NUM";
-			HOLD_TAP(&mo, &td_num)
-		};
-
-		l_tap: l_tap {
-			label = "L_TAP";
-			HOLD_TAP(&mo, &to)
-		};
 
 		hml: hml { label = "HML"; hold-trigger-key-positions = <KEYS_R THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };
 		hmr: hmr { label = "HMR"; hold-trigger-key-positions = <KEYS_L THUMBS>; HOME_ROW HOLD_TAP(&kp, &kp) };

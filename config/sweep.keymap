@@ -1,7 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <behaviors/num_word.dtsi>
 #include "34.h"
 
 #define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
