@@ -1,16 +1,34 @@
 ---
 include:
-  - board: nice_nano
+  - board: nice_nano//zmk
     shield: kb_left
-  - board: nice_nano
+    artifact-name: kyria_left
+  - board: nice_nano//zmk
     shield: kb_right
-  - board: nice_nano
+    artifact-name: kyria_right
+  - board: nice_nano//zmk
     shield: kb_dongle
-  - board: nice_nano
-    shield: settings_reset
-  - board: nice_nano
+    artifact-name: kyria_dongle
+  - board: nice_nano//zmk
     shield: sweep_left
-  - board: nice_nano
+    artifact-name: sweep_left
+  - board: nice_nano//zmk
     shield: sweep_right
-  - board: nice_nano
+    artifact-name: sweep_right
+
+  # Sweep dongle mode
+  - board: nice_nano//zmk
+    shield: sweep_left
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: sweep_d_left
+  - board: nice_nano//zmk
+    shield: sweep_right
+    artifact-name: sweep_d_right
+  - board: nice_nano//zmk
     shield: sweep_dongle
+    artifact-name: sweep_d_dongle
+
+  # Settings reset
+  - board: nice_nano//zmk
+    shield: settings_reset
+    artifact-name: settings_reset
