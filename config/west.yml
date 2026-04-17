@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: dusanlesan
-      url-base: https://github.com/DusanLesan
+    - name: zmkfirmware
+      url-base: https://github.com/newx-it
   projects:
     - name: zmk
-      remote: dusanlesan
-      revision: feat/power-idle-sleep-while-ble-connected
+      remote: zmkfirmware
+      revision: feat-ble-prevent-sleep-feat-usb-allow-sleep
       import: app/west.yml
   self:
     path: config

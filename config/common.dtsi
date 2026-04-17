@@ -63,8 +63,8 @@
 		require-prior-idle-ms = <idle_val>; \
 	};
 
-#define COMBO_FAST(name, bind, keypos) COMBO_FULL(name, bind, keypos, 30, 120)
-#define COMBO(name, bind, keypos) COMBO_FULL(name, bind, keypos, 60, 50)
+#define COMBO_FAST(name, bind, keypos) COMBO_FULL(name, bind, keypos, 40, 120)
+#define COMBO(name, bind, keypos) COMBO_FULL(name, bind, keypos, 80, 30)
 
 &lt {
 	tapping-term-ms = <300>;

@@ -2,4 +2,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: DusanLesan/zmk/.github/workflows/build-user-config.yml@feat/power-idle-sleep-while-ble-connected
+    uses: newx-it/zmk/.github/workflows/build-user-config.yml@feat-ble-prevent-sleep-feat-usb-allow-sleep
