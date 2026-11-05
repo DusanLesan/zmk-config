@@ -27,8 +27,14 @@ include:
   - board: nice_nano//zmk
     shield: sweep_dongle
     artifact-name: sweep_d_dongle
+  - board: nrf52840_mdk_usb_dongle//zmk
+    shield: sweep_dongle
+    artifact-name: sweep_d_mkd_dongle
 
   # Settings reset
   - board: nice_nano//zmk
     shield: settings_reset
     artifact-name: settings_reset
+  - board: nrf52840_mdk_usb_dongle//zmk
+    shield: settings_reset
+    artifact-name: settings_reset_mkd

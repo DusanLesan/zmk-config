@@ -1,1 +1,19 @@
-#include "sweep.dtsi"
+#include "sweep_layout.dtsi"
+
+/*
+ * The dongle has no switches of its own; it only needs the layout/transform
+ * so it can map key positions reported by the two peripherals. A mock kscan
+ * keeps this overlay board-agnostic (nice!nano, nRF52840 MDK USB Dongle, ...).
+ */
+/ {
+	chosen {
+		zmk,kscan = &mock_kscan;
+	};
+
+	mock_kscan: kscan_0 {
+		compatible = "zmk,kscan-mock";
+		columns = <0>;
+		rows = <0>;
+		events = <0>;
+	};
+};
