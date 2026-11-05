@@ -1,3 +1,11 @@
+if BOARD_NRF52840_MDK_USB_DONGLE
+
+# The board's UF2 and settings defaults are supplied by the user config.
+config ZMK_BOARD_COMPAT
+	default y
+
+endif
+
 if SHIELD_SWEEP_DONGLE
 
 config ZMK_KEYBOARD_NAME
